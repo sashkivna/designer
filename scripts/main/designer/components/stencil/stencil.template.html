@@ -1,0 +1,12 @@
+<div ng-repeat="component in components">
+    <div class="component"
+         ng-class="{'selected-component': isComponentSelected(component)}">
+        <label ng-click="selectComponent(component)">{{component.label}}</label>
+    </div>
+</div>
+
+<button class="select-component-button"
+        ng-click="addSelectedComponent(component)"
+        ng-disabled="!selectedComponent">
+    Add Component
+</button>
