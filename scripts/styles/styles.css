@@ -1,0 +1,19 @@
+.designer-view {
+    background: #aaa;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.designer-view > div {
+    flex-grow: 1;
+    width: 33%;
+    height: 100px;
+}
+.designer-view > div:nth-child(even) {
+    background: #23a;
+}
+.designer-view > div:nth-child(odd) {
+    width: 200px;
+    background: #49b;
+}
