@@ -37,3 +37,11 @@ body {
 .selected-component {
     border: 2px solid palevioletred;
 }
+
+.type {
+    height: 200px;
+    width: 100%;
+    background-color: #F6C6CE;
+    border: 1px solid rebeccapurple;
+    margin: 2px;
+}
