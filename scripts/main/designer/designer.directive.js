@@ -15,7 +15,9 @@ angular.module('designer.module')
 
                 $scope.addComponentToCanvas = function (component) {
                     $scope.canvasComponents.push(component);
-                }
+                };
+
+
             }
         };
     });
