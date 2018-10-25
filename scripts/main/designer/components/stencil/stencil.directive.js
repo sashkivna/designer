@@ -13,7 +13,6 @@ angular.module('designer.module')
                 $scope.selectedComponent = null;
 
                 $scope.addSelectedComponent = function () {
-                    debugger;
                     console.log($scope.selectedComponent);
 
                     $scope.onSelect({component: $scope.selectedComponent});
