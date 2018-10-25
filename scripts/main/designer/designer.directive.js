@@ -12,12 +12,16 @@ angular.module('designer.module')
 
                 $scope.stencilComponents = [fooComponentDescription];
                 $scope.canvasComponents = [];
+                $scope.inspectorComponent = null;
 
                 $scope.addComponentToCanvas = function (component) {
                     $scope.canvasComponents.push(component);
                 };
 
-
+                $scope.specifyInspectorComponent = function (component) {
+                    $scope.inspectorComponent = component;
+                    console.log($scope.inspectorComponent);
+                };
             }
         };
     });

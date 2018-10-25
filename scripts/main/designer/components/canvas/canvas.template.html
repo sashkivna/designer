@@ -1,3 +1,4 @@
-<canvas-component component="component"
-                  ng-repeat="component in components track by $index">
+<canvas-component
+        ng-click="selectFromCanvas(component)"
+        ng-repeat="component in components track by $index">
 </canvas-component>
