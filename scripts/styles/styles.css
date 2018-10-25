@@ -34,7 +34,7 @@ body {
     height: 1000px;
 }
 
-my-stencil .foo-component {
+my-stencil .selected-component {
     border: 2px solid palevioletred;
 }
 
