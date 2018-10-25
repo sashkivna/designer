@@ -6,11 +6,6 @@ angular.module('designer.module')
 
             scope: {
                 component: '=',
-            },
-
-            link: function ($scope) {
-                $scope.$watch('component', function (component) {
-                });
             }
         };
     });

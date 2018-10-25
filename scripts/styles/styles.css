@@ -46,6 +46,6 @@ foo-component > div {
     margin: 2px 2px 2px 15px;
 }
 
-.inspector-look {
+my-inspector {
     margin-top: 5%;
 }

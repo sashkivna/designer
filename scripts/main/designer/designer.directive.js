@@ -21,7 +21,6 @@ angular.module('designer.module')
                 };
 
                 $scope.addComponentToCanvas = function (componentDescriptor) {
-                    debugger;
                     $scope.canvasComponents.push(componentDescriptor);
 
                     var componentModel = {
