@@ -1,6 +1,6 @@
 <div ng-repeat="component in components">
     <div class="component"
-         ng-class="{'selected-component': isComponentSelected(component)}">
+         ng-class="{'foo-component': isComponentSelected(component)}">
         <label ng-click="selectComponent(component)">{{component.label}}</label>
     </div>
 </div>
