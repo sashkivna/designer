@@ -9,7 +9,9 @@ angular.module('designer.module')
             },
 
             link: function ($scope, $element) {
-                $element.append($compile('<input ng-model="model[propertyConfig.name]" type="' + $scope.propertyConfig.type + '"/>')($scope));
+                $element.append($compile('<' + $scope.propertyConfig.type +"-field"+ '></' + $scope.propertyConfig.type + "-field"+'>')($scope));
             }
         };
     });
+
+//<input ng-model="model[propertyConfig.name]" type="' + $scope.propertyConfig.type + '"/>
