@@ -13,5 +13,3 @@ angular.module('designer.module')
             }
         };
     });
-
-//<input ng-model="model[propertyConfig.name]" type="' + $scope.propertyConfig.type + '"/>

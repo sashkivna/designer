@@ -17,7 +17,7 @@ angular.module('designer.module')
                 $scope.displayInspector = false;
 
                 $scope.definitions = {
-                    comments: []
+                    components: []
                 };
 
                 $scope.addComponentToCanvas = function () {
@@ -33,7 +33,7 @@ angular.module('designer.module')
                         componentModel[property] = null;
                     }
 
-                    $scope.definitions.comments.push(componentModel);
+                    $scope.definitions.components.push(componentModel);
                 };
 
                 $scope.specifyInspectorComponent = function (componentModel) {
