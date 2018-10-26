@@ -4,7 +4,7 @@ angular.module('designer.module')
             restrict: 'E',
 
             link: function ($scope, $element) {
-                $element.append($compile('<' + $scope.component.type + '></' + $scope.component.type + '>')($scope));
+                $element.append($compile('<' + $scope.component._type + '></' + $scope.component._type + '>')($scope));
             }
         };
     });

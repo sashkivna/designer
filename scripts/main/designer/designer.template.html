@@ -1,5 +1,14 @@
 <div class="designer-view">
-    <div><my-stencil components="stencilComponents" on-select="addComponentToCanvas(component)"></my-stencil></div>
-    <div><my-canvas components="canvasComponents"></my-canvas></div>
-    <div>here will be description component</div>
+    <div>
+        <my-stencil components="stencilComponents" on-select="addComponentToCanvas(component)"></my-stencil>
+    </div>
+
+    <div>
+        <my-canvas components="definitions.components" on-select="specifyInspectorComponent(component)"></my-canvas>
+    </div>
+
+    <div>
+        <my-inspector ng-if="displayInspector"
+                      component-model="inspectorComponent"></my-inspector>
+    </div>
 </div>
