@@ -8,14 +8,15 @@ angular.module('designer.module')
                 components: '=',
                 onSelect: '&'
             },
-            
+
             link: function ($scope) {
                 $scope.selectedComponent = null;
 
-                $scope.selectFromCanvas = function (component, $index) {
+                $scope.selectFromCanvas = function (component) {
                     $scope.selectedComponent = component;
-                    $scope.onSelect({component: $scope.selectedComponent,
-                                     $index: $index
+
+                    $scope.onSelect({
+                        component: $scope.selectedComponent
                     });
                 }
             }

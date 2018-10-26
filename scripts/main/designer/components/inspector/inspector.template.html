@@ -1,4 +1,4 @@
 <h3>Selected component description:</h3>
-<label>
-    <input type="text" ng-model="component.label"> Label
-</label>
+<inspector-component ng-repeat="propertyConfig in componentModel.inspectorConfig"
+                     property-config="propertyConfig"
+                     model="componentModel"></inspector-component>

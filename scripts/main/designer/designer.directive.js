@@ -1,16 +1,16 @@
 angular.module('designer.module')
-    .directive('myDesigner', function () {
+    .directive('myDesigner', function (FOO_COMPONENT) {
         return {
             restrict: 'E',
             templateUrl: 'main/designer/designer.template.html',
 
             link: function ($scope) {
-                var fooComponentDescription = {
-                    name: 'foo',
-                    type: 'foo-component'
-                };
+                var fooComponentDescription = FOO_COMPONENT.descriptor;
 
-                $scope.stencilComponents = [fooComponentDescription];
+                $scope.stencilComponents = [{
+                    componentName: fooComponentDescription.componentName
+                }];
+
                 $scope.canvasComponents = [];
 
                 $scope.inspectorComponent = null;
@@ -20,20 +20,25 @@ angular.module('designer.module')
                     comments: []
                 };
 
-                $scope.addComponentToCanvas = function (componentDescriptor) {
-                    $scope.canvasComponents.push(componentDescriptor);
+                $scope.addComponentToCanvas = function () {
+                    var componentDescriptor = FOO_COMPONENT.descriptor;
 
                     var componentModel = {
-                        name: componentDescriptor.name,
-                        label: 'enter label',
-                        type: componentDescriptor.type,
+                        _name: componentDescriptor.componentName,
+                        _type: componentDescriptor.type,
+                        inspectorConfig: componentDescriptor.properties
                     };
+
+                    for (var property in componentDescriptor.properties) {
+                        componentModel[property] = null;
+                    }
 
                     $scope.definitions.comments.push(componentModel);
                 };
 
-                $scope.specifyInspectorComponent = function ($index) {
-                    $scope.inspectorComponent = $scope.definitions.comments[$index];
+                $scope.specifyInspectorComponent = function (componentModel) {
+                    $scope.inspectorComponent = componentModel;
+
                     $scope.displayInspector = true;
                 };
             }

@@ -4,11 +4,11 @@
     </div>
 
     <div>
-        <my-canvas components="definitions.comments" on-select="specifyInspectorComponent($index)"></my-canvas>
+        <my-canvas components="definitions.comments" on-select="specifyInspectorComponent(component)"></my-canvas>
     </div>
 
     <div>
         <my-inspector ng-if="displayInspector"
-                      component="inspectorComponent"></my-inspector>
+                      component-model="inspectorComponent"></my-inspector>
     </div>
 </div>
