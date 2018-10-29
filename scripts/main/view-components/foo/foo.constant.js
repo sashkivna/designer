@@ -9,8 +9,7 @@ angular.module('designer.module')
                     type: 'text'
                 },
                 {
-                    name: 'id',
-                    type: 'number'
+                    description: "blabla"
                 }
             ]
         }

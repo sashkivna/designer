@@ -9,10 +9,21 @@ angular.module('designer.module')
                     debugger;
                     if ($scope.$root.definitions.components.length > 0) {
                         for (var i = 0; i < $scope.$root.definitions.components.length; i++) {
+                            if ($scope.$root.definitions.components[i].inspectorConfig.length !== 1) {
+                                for (var j = 0; j < $scope.$root.definitions.components[i].inspectorConfig.length; j++) {
+                                    for (var key in $scope.$root.definitions.components[i].inspectorConfig[j]){
+                                        if (key === "description") {
+                                            var description = $scope.$root.definitions.components[i].inspectorConfig[j][key];
+                                        }
+                                    }
+                                }
+                            }
+
                             $scope.finalJSON.push({
                                 _name: $scope.$root.definitions.components[i]._name,
                                 _type: $scope.$root.definitions.components[i]._type,
-                                label: $scope.$root.definitions.components[i].label
+                                label: $scope.$root.definitions.components[i].label,
+                                description: description
                             });
                         }
                     }
