@@ -12,13 +12,14 @@ angular.module('designer.module')
                 }];
 
                 $scope.canvasComponents = [];
-
+                $scope.finalJSON = [];
                 $scope.inspectorComponent = null;
                 $scope.displayInspector = false;
 
                 $scope.definitions = {
                     components: []
                 };
+
 
                 $scope.addComponentToCanvas = function () {
                     debugger;
@@ -29,18 +30,13 @@ angular.module('designer.module')
                         _type: componentDescriptor.type,
                         inspectorConfig: componentDescriptor.properties
                     };
-                    componentDescriptor.properties.forEach(function (component) {
-                        for (var property in component) {
-                            componentModel[property] = component[property];
-                        }
-                    });
 
                     $scope.definitions.components.push(componentModel);
                 };
 
                 $scope.specifyInspectorComponent = function (componentModel) {
                     $scope.inspectorComponent = componentModel;
-
+                    $scope.finalJSON.push($scope.inspectorComponent);
                     $scope.displayInspector = true;
                 };
             }
