@@ -18,7 +18,7 @@ angular.module('designer.module')
                     $scope.onSelect({
                         component: $scope.selectedComponent
                     });
-                }
+                };
             }
         };
     });
