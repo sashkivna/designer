@@ -21,6 +21,7 @@ angular.module('designer.module')
                 };
 
                 $scope.addComponentToCanvas = function () {
+                    debugger;
                     var componentDescriptor = FOO_COMPONENT.descriptor;
 
                     var componentModel = {
@@ -28,10 +29,11 @@ angular.module('designer.module')
                         _type: componentDescriptor.type,
                         inspectorConfig: componentDescriptor.properties
                     };
-
-                    for (var property in componentDescriptor.properties) {
-                        componentModel[property] = null;
-                    }
+                    componentDescriptor.properties.forEach(function (component) {
+                        for (var property in component) {
+                            componentModel[property] = component[property];
+                        }
+                    });
 
                     $scope.definitions.components.push(componentModel);
                 };
