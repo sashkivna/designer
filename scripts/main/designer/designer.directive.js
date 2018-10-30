@@ -1,46 +1,51 @@
 angular.module('designer.module')
-    .directive('myDesigner', function (FOO_COMPONENT) {
+    .directive('myDesigner', function (registerComponents) {
         return {
             restrict: 'E',
             templateUrl: 'main/designer/designer.template.html',
 
             link: function ($scope) {
-                var fooComponentDescription = FOO_COMPONENT.descriptor;
+                $scope.stencilComponents = registerComponents.getRegisteredComponents();;
 
-                $scope.stencilComponents = [{
-                    componentName: fooComponentDescription.componentName
-                }];
-
-                $scope.canvasComponents = [];
-
+                $scope.canvasComponentModels = [];
+                $scope.finalJSON = [];
                 $scope.inspectorComponent = null;
-                $scope.displayInspector = false;
 
-                $scope.definitions = {
-                    components: []
-                };
-
-                $scope.addComponentToCanvas = function () {
-                    var componentDescriptor = FOO_COMPONENT.descriptor;
+                $scope.addComponentToCanvas = function (selectedComponent) {
+                    var componentDescriptor = $scope.stencilComponents.find(function (component) {
+                        return component.componentName === selectedComponent.componentName;
+                    });
 
                     var componentModel = {
                         _name: componentDescriptor.componentName,
                         _type: componentDescriptor.type,
-                        inspectorConfig: componentDescriptor.properties
+                        inspectorConfig: componentDescriptor.properties,
+                        inspectorData: {}
                     };
 
-                    for (var property in componentDescriptor.properties) {
-                        componentModel[property] = null;
-                    }
-
-                    $scope.definitions.components.push(componentModel);
+                    $scope.canvasComponentModels.push(componentModel);
                 };
 
-                $scope.specifyInspectorComponent = function (componentModel) {
+                $scope.selectCanvasComponent = function (componentModel) {
                     $scope.inspectorComponent = componentModel;
-
-                    $scope.displayInspector = true;
                 };
+
+                $scope.showFinalConfigArr = function () {
+                    $scope.JSON = [];
+
+                    $scope.canvasComponentModels.forEach(function (model) {
+                        var obj = {
+                            name: model._name,
+                            type: model._type,
+                        };
+
+                        for (var key in model.inspectorData) {
+                            obj[key] = model.inspectorData[key];
+                        }
+
+                        $scope.JSON.push(obj);
+                    })
+                }
             }
         };
     });

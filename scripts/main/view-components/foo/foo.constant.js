@@ -1,6 +1,5 @@
 angular.module('designer.module')
     .constant('FOO_COMPONENT', {
-        descriptor: {
             componentName: 'foo',
             type: 'foo-component',
             properties: [
@@ -9,9 +8,8 @@ angular.module('designer.module')
                     type: 'text'
                 },
                 {
-                    name: 'id',
+                    name: 'description',
                     type: 'number'
                 }
             ]
-        }
     });

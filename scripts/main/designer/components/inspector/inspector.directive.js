@@ -5,7 +5,7 @@ angular.module('designer.module')
             templateUrl: 'main/designer/components/inspector/inspector.template.html',
 
             scope: {
-                componentModel: '=',
+                componentModel: '='
             }
         };
     });
