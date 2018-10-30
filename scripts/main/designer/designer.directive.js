@@ -1,26 +1,18 @@
 angular.module('designer.module')
-    .directive('myDesigner', function (FOO_COMPONENT) {
+    .directive('myDesigner', function (registerComponents) {
         return {
             restrict: 'E',
             templateUrl: 'main/designer/designer.template.html',
 
             link: function ($scope) {
-                var fooComponentDescription = FOO_COMPONENT.descriptor;
-
-                var allComponents = [fooComponentDescription];
-
-                $scope.stencilComponents = [
-                    {
-                        componentName: fooComponentDescription.componentName
-                    }
-                ];
+                $scope.stencilComponents = registerComponents.getRegisteredComponents();;
 
                 $scope.canvasComponentModels = [];
                 $scope.finalJSON = [];
                 $scope.inspectorComponent = null;
 
                 $scope.addComponentToCanvas = function (selectedComponent) {
-                    var componentDescriptor = allComponents.find(function (component) {
+                    var componentDescriptor = $scope.stencilComponents.find(function (component) {
                         return component.componentName === selectedComponent.componentName;
                     });
 
