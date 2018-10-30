@@ -42,9 +42,14 @@ angular.module('designer.module')
                 };
 
                 $scope.showFinalConfigArr =function () {
-                    $scope.settArr = $scope.finalJSON.map(function (element) {
-                        delete element.inspectorConfig;
-                        return element;
+                    var obj = {};
+                    $scope.finalJSON.map(function (element) {
+                        for (var key in element) {
+                            if( key !== 'inspectorConfig') {
+                                obj[key] = element[key];
+                            }
+                            }
+                        return $scope.settArr.push(obj);
                     })
                 }
             }
