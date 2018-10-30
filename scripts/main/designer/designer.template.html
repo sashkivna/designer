@@ -4,14 +4,14 @@
     </div>
 
     <div>
-        <my-canvas components="definitions.components" on-select="specifyInspectorComponent(component, $index)"></my-canvas>
+        <my-canvas components="canvasComponentModels" on-select="selectCanvasComponent(component)"></my-canvas>
     </div>
 
     <div>
-        <my-inspector ng-if="displayInspector"
-                      component-model="inspectorComponent"></my-inspector>
+        <my-inspector ng-if="inspectorComponent"
+                component-model="inspectorComponent"></my-inspector>
     </div>
 </div>
 
 <button ng-click="showFinalConfigArr()">Show final json</button>
-<pre>{{settArr | json}}</pre>
+<pre>{{JSON | json}}</pre>

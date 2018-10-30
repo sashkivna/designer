@@ -1,4 +1,4 @@
 <label>
-    Label
-    <input type="text" ng-model="model[propertyConfig.name]" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }">
+    {{::propertyConfig.name}}
+    <input type="text" ng-model="model.inspectorData[propertyConfig.name]" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }">
 </label>
