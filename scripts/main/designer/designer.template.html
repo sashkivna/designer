@@ -4,7 +4,7 @@
     </div>
 
     <div>
-        <my-canvas components="definitions.components" on-select="specifyInspectorComponent(component)"></my-canvas>
+        <my-canvas components="definitions.components" on-select="specifyInspectorComponent(component, $index)"></my-canvas>
     </div>
 
     <div>
@@ -13,4 +13,5 @@
     </div>
 </div>
 
-<pre>{{finalJSON| json}}</pre>
+<button ng-click="showFinalConfigArr()">Show final json</button>
+<pre>{{settArr | json}}</pre>

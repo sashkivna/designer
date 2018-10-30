@@ -12,11 +12,12 @@ angular.module('designer.module')
             link: function ($scope) {
                 $scope.selectedComponent = null;
 
-                $scope.selectFromCanvas = function (component) {
+                $scope.selectFromCanvas = function (component, $index) {
                     $scope.selectedComponent = component;
 
                     $scope.onSelect({
-                        component: $scope.selectedComponent
+                        component: $scope.selectedComponent,
+                        $index: $index
                     });
                 };
             }

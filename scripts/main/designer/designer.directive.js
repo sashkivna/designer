@@ -15,14 +15,14 @@ angular.module('designer.module')
                 $scope.finalJSON = [];
                 $scope.inspectorComponent = null;
                 $scope.displayInspector = false;
-
+                $scope.inspectorComponentIndex = null;
                 $scope.definitions = {
                     components: []
                 };
+                $scope.settArr = [];
 
 
                 $scope.addComponentToCanvas = function () {
-                    debugger;
                     var componentDescriptor = FOO_COMPONENT.descriptor;
 
                     var componentModel = {
@@ -34,11 +34,19 @@ angular.module('designer.module')
                     $scope.definitions.components.push(componentModel);
                 };
 
-                $scope.specifyInspectorComponent = function (componentModel) {
+                $scope.specifyInspectorComponent = function (componentModel, $index) {
                     $scope.inspectorComponent = componentModel;
-                    $scope.finalJSON.push($scope.inspectorComponent);
+                    $scope.inspectorComponentIndex = $index;
+                    $scope.finalJSON[$index] = $scope.inspectorComponent;
                     $scope.displayInspector = true;
                 };
+
+                $scope.showFinalConfigArr =function () {
+                    $scope.settArr = $scope.finalJSON.map(function (element) {
+                        delete element.inspectorConfig;
+                        return element;
+                    })
+                }
             }
         };
     });
